@@ -3,7 +3,7 @@ A utility to FLATTEN and UNFLATTEN .json files in python
 
 All sample files have been taken from [here](https://filesamples.com/formats/json)
 
-**JSON** (JavaScript Object Notation)
+## JSON (JavaScript Object Notation)
 
 A .json file might look like this
 ```
