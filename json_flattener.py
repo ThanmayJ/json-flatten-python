@@ -1,4 +1,4 @@
-def flatten(data):
+def flatten(data, seperator = '.'):
     output = {}
 
     def flatten_helper(data, idx):
@@ -6,17 +6,17 @@ def flatten(data):
             keys = list(data.keys())
             if keys:
                 for key in keys:
-                    flatten_helper(data[key], idx+key+'.')
+                    flatten_helper(data[key], idx+key+seperator)
             else:
-                output[idx[:-1]] = data
+                output[idx[:-1*len(seperator)]] = data
         elif isinstance(data, list):
             if data:
                 for i in range(len(data)): 
-                    flatten_helper(data[i], idx+f'[{i}].')
+                    flatten_helper(data[i], idx+f'[{i}]'+seperator)
             else:
-                output[idx[:-1]] = []
+                output[idx[:-1*len(seperator)]] = []
         else:
-            output[idx[:-1]] = data
+            output[idx[:-1*len(seperator)]] = data
     
     flatten_helper(data, '')
     
@@ -26,10 +26,10 @@ def flatten(data):
 
 
 
-def unflatten(data):
+def unflatten(data, seperator = '.'):
     if isinstance(data, dict):
         f_keys = list(data.keys())
-        if f_keys[0].split('.')[0][0] == '[' and f_keys[0].split('.')[0][-1] == ']':
+        if f_keys[0].split(seperator)[0][0] == '[' and f_keys[0].split(seperator)[0][-1] == ']':
             output = []
         else:
             output = {}
@@ -37,7 +37,7 @@ def unflatten(data):
     def unflatten_helper(data, f_keys):
         for f_key in f_keys:
             val = data[f_key]
-            keys = f_key.split('.')
+            keys = f_key.split(seperator)
             i = 0
             x = output
             while i < len(keys) - 1:
