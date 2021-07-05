@@ -27,7 +27,7 @@ data = {'people': [{'age': 28,
 ## FLATTEN
 
 Flattening it will give:
-```
+```python
 flattened = {'people.[0].age': 28,
              'people.[0].firstName': 'Joe',
              'people.[0].gender': 'male',
@@ -47,7 +47,7 @@ flattened = {'people.[0].age': 28,
 ## UNFLATTEN
 
  Unflattening a flattened .json file will bring back the original structure.
- ```
+ ```python
 unflattened = {'people': [{'age': 28,
                'firstName': 'Joe',
                'gender': 'male',
