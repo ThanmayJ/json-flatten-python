@@ -6,7 +6,7 @@ All sample files have been taken from [here](https://filesamples.com/formats/jso
 ## JSON (JavaScript Object Notation)
 
 A .json file might look like this
-```
+```python
 data = {'people': [{'age': 28,
          'firstName': 'Joe',
          'gender': 'male',
